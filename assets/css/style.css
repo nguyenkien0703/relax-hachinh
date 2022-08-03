@@ -10,19 +10,31 @@
 }
 
 body {
-    background:linear-gradient(-70deg,#fffbd5,#6be585)
+    background:linear-gradient(-70deg,#fffbd5,#6be585);
+    position: relative;
+    /* overflow:hidden; */
 }
 
 html {
     box-sizing: border-box;
     font-family: 'Pacifico', cursive;
 }
+html,
+body {
+    cursor: url("https://1.bp.blogspot.com/-qbWo9mPKO2Y/YL9utYdQBdI/AAAAAAAAFs4/mtjGu6u2uGwtJsT4gZG4lbhLV1a5lG6OQCLcBGAsYHQ/s0/mouse-f1.png"), auto;
+}
+
+a:hover {
+    cursor: url("https://1.bp.blogspot.com/-nYv2dLl3oXY/YL9utYBCh8I/AAAAAAAAFtA/wII4lVw5w4k-4isGMY41heTqk8U4TJujgCLcBGAsYHQ/s0/mouse-f2.png"), auto;
+}
 
 .player {
-    position: relative;
     max-width: 480px;
     margin: 0 auto;
+    position: relative;
+    z-index: 10;;
 }
+
 
 .player .icon-pause {
     display: none;
@@ -70,7 +82,6 @@ header h2 {
 }
 
 .cd-thumb {
-    /* height: 246px; */
     padding-top: 100%;
     border: 5px solid green;
     width: 100%;
@@ -170,6 +181,7 @@ header h2 {
 .song .body {
     flex: 1;
     padding: 0 16px;
+    
 }
 
 .song .title {

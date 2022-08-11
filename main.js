@@ -139,6 +139,36 @@ const app = {
             path: "./assets/audio/MẤY KHI ĐƯỢC YÊU - Nguyên.mp4",
             image: './assets/img/haf chinh.jpg',
         },
+        {
+            name: "Can you love me?? yup=)))",
+            singer: 'kien',
+            path: "./assets/audio/CAN WE LOVE - Obito - (Official Lyric Video).mp4",
+            image: './assets/img/update1.png',
+        },
+        {
+            name: "Chỉ muốn bên ... thật gần >.<",
+            singer: 'kien',
+            path: "./assets/audio/Chỉ Muốn Bên Em Thật Gần (Orinn Remix) - YLing - Nhạc Trẻ EDM Hot TikTok Gây Nghiện Hay Nhất 2022.mp4",
+            image: './assets/img/update2.jpg',
+        },
+        {
+            name: "Không phải dù cho mai về sau fake nhé @@",
+            singer: 'kien',
+            path: "./assets/audio/CHỈ MUỐN BÊN EM LÚC NÀY - JIKI X ft HUY VẠC (FULL MV LYRIC).mp4",
+            image: './assets/img/update5.jpg',
+        },
+        {
+            name: "It's youuuuu",
+            singer: 'kien',
+            path: "./assets/audio/it you.mp4",
+            image: './assets/img/update3.jpg',
+        },
+        {
+            name: "Anh trông theo đó nhưng chỉ thấy em=))))",
+            singer: 'kien',
+            path: "./assets/audio/- Anh trông theo đó đây nhưng sao chẳng thấy..- ( 2A.M JustaTee x BigDaddy) - Audio Lyrics Video.mp4",
+            image: './assets/img/update4.jpg',
+        },
 
     ],
     render: function () {
@@ -328,85 +358,87 @@ const app = {
 }
 app.start();
 // cursor movement effect
-document.addEventListener("DOMContentLoaded", function () {
-    // var canvas = document.createElement("canvas"); 
-    var c = canvas.getContext("2d");
+// document.addEventListener("DOMContentLoaded", function () {
+//     var canvas = document.createElement("canvas"); 
+//     var c = canvas.getContext("2d");
 
-    document.body.appendChild(canvas);
-    const mouse = {
-        x: undefined,
-        y: undefined
-    }
-    var mouseClick = 0;
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-    const colorArray = [
-        "255,255,255",
-        "242,60,80",
-        "255,241,5",
-        "233, 217, 217",
-        "54, 177, 191",
-        "0, 128, 128",
-        "255,0,0",
-        "0,255,255",
-        "0,255,0",
-    ];
-    document.addEventListener("mousemove", function (event) {
-        mouse.x = event.clientX;
-        mouse.y = event.clientY;
-    });
-    document.addEventListener("click", function () {
-        mouseClick += 1;
-    });
-    function Circle(x, y) {
-        this.x = x;
-        this.y = y;
-        this.radius = Math.random() * 3 + 2;
-        this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
-        this.velocity = {
-            x: Math.random() * 6 - 3,
-            y: Math.random() * 6 - 3
-        }
-        this.life = 60;
-        this.opacity = .9;
-    }
+//     document.body.appendChild(canvas);
+//     const mouse = {
+//         x: undefined,
+//         y: undefined
+//     }
+//     Object.assign(canvas.style, {
+//         backgroundColor: 'red',
+//         width:1519+'px',
+//         height : 1790+'px',
+//         marginTop: -1900+'px'
+//     })
+//     const colorArray = [
+//         "255,255,255",
+//         "242,60,80",
+//         "255,241,5",
+//         "233, 217, 217",
+//         "54, 177, 191",
+//         "0, 128, 128",
+//         "255,0,0",
+//         "0,255,255",
+//         "0,255,0",
+//     ];
+//     document.addEventListener("mousemove", function (event) {
+//         mouse.x = event.clientX;
+//         mouse.y = event.clientY;
+//     });
+//     document.addEventListener("click", function () {
+//         mouseClick += 1;
+//     });
+//     function Circle(x, y) {
+//         this.x = x;
+//         this.y = y;
+//         this.radius = Math.random() * 3 + 2;
+//         this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
+//         this.velocity = {
+//             x: Math.random() * 6 - 3,
+//             y: Math.random() * 6 - 3
+//         }
+//         this.life = 60;
+//         this.opacity = .9;
+//     }
 
-    Circle.prototype.draw = function (c) {
-        c.beginPath();
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        c.fillStyle = `rgba(${this.color}, ${this.opacity})`;
-        c.fill();
-        c.closePath();
-    }
-    Circle.prototype.update = function (c) {
-        this.x += this.velocity.x;
-        this.y += this.velocity.y;
-        this.life -= 2;
-        this.opacity -= 0.015;
-        this.draw(c)
-    }
-    var circleArray = [];
-    function init() {
-        for (let i = 0; i < 15; i++)
-            circleArray.push(new Circle(mouse.x, mouse.y));
-    }
+//     Circle.prototype.draw = function (c) {
+//         c.beginPath();
+//         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+//         c.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+//         c.fill();
+//         c.closePath();
+//     }
+//     Circle.prototype.update = function (c) {
+//         this.x += this.velocity.x;
+//         this.y += this.velocity.y;
+//         this.life -= 2;
+//         this.opacity -= 0.015;
+//         this.draw(c)
+//     }
+//     var circleArray = [];
+//     function init() {
+//         for (let i = 0; i < 15; i++)
+//             circleArray.push(new Circle(mouse.x, mouse.y));
+//     }
 
-    function animate() {
-        window.requestAnimationFrame(animate);
-        init()
-        c.fillStyle = "rgba(0,0,0,.1)";
-        if (mouseClick % 2 == 0)
-            c.clearRect(0, 0, canvas.width, canvas.height);
-        else
-            c.fillRect(0, 0, canvas.width, canvas.height);
-        circleArray.forEach(function (i, index) {
-            if (i.life <= 0)
-                circleArray.splice(index, 1);
-            i.update(c);
-        });
-        console.log(circleArray.length);
-    }
+//     function animate() {
+//         window.requestAnimationFrame(animate);
+//         init()
+//         if (mouseClick % 2 == 0)
+//             c.clearRect(0, 0, 1519, 1790);
+//         else
+//             c.fillRect(0, 0, 1519, 1790);
+//         circleArray.forEach(function (i, index) {
+//             if (i.life <= 0)
+//                 circleArray.splice(index, 1);
+//             i.update(c);
+//         });
+//         console.log(circleArray.length);
+//     }
 
-    animate();
+//     animate();
 
-});
+// });

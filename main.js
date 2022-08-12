@@ -146,7 +146,7 @@ const app = {
             image: './assets/img/update1.png',
         },
         {
-            name: "Chỉ muốn bên ... thật gần >.<",
+            name: "Chỉ muốn bên ... thật gần>.<",
             singer: 'kien',
             path: "./assets/audio/Chỉ Muốn Bên Em Thật Gần (Orinn Remix) - YLing - Nhạc Trẻ EDM Hot TikTok Gây Nghiện Hay Nhất 2022.mp4",
             image: './assets/img/update2.jpg',

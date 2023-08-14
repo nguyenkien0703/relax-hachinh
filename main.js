@@ -12,6 +12,8 @@ const prevBtn = $('.btn-prev')
 const randomBtn = $('.btn-random')
 const repeatBtn = $('.btn-repeat')
 const playlist = $('.playlist')
+// canvas.style.zIndex = "9999";
+
 const app = {
     currenIndex: 0,
     isPlaying: false,
@@ -74,7 +76,7 @@ const app = {
             image: './assets/img/em5.png',
         },
         {
-            name: 'My love',
+            name: 'My love ^.^',
             singer: 'kien',
             path: './assets/audio/My-Love-Westlife.mp3',
             image: './assets/img/hc1.jpg',
@@ -344,6 +346,7 @@ const app = {
         this.currenIndex = newIndex
         this.loadCurrentSong();
     },
+
     start: function () {
         // ding nghia thuoc tinh
         this.defineProperties();
@@ -353,92 +356,169 @@ const app = {
         this.loadCurrentSong();
         // render playlist
         this.render();
-    }
+    },
+    
 
 }
 app.start();
-// cursor movement effect
+
 // document.addEventListener("DOMContentLoaded", function () {
-//     var canvas = document.createElement("canvas"); 
+//     var hearts = [];
+  
+//     var canvas = document.createElement("canvas");
 //     var c = canvas.getContext("2d");
-
+  
 //     document.body.appendChild(canvas);
-//     const mouse = {
-//         x: undefined,
-//         y: undefined
+//     canvas.style.zIndex = "9999";
+//     canvas.style.position = "fixed";
+//     canvas.style.top = "0";
+//     canvas.style.left = "0";
+//     canvas.style.pointerEvents = "none";
+  
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
+  
+//     function Heart(x, y) {
+//       this.x = x;
+//       this.y = y;
+//       this.opacity = 0.9;
 //     }
-//     Object.assign(canvas.style, {
-//         backgroundColor: 'red',
-//         width:1519+'px',
-//         height : 1790+'px',
-//         marginTop: -1900+'px'
-//     })
-//     const colorArray = [
-//         "255,255,255",
-//         "242,60,80",
-//         "255,241,5",
-//         "233, 217, 217",
-//         "54, 177, 191",
-//         "0, 128, 128",
-//         "255,0,0",
-//         "0,255,255",
-//         "0,255,0",
-//     ];
-//     document.addEventListener("mousemove", function (event) {
-//         mouse.x = event.clientX;
-//         mouse.y = event.clientY;
-//     });
-//     document.addEventListener("click", function () {
-//         mouseClick += 1;
-//     });
-//     function Circle(x, y) {
-//         this.x = x;
-//         this.y = y;
-//         this.radius = Math.random() * 3 + 2;
-//         this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
-//         this.velocity = {
-//             x: Math.random() * 6 - 3,
-//             y: Math.random() * 6 - 3
-//         }
-//         this.life = 60;
-//         this.opacity = .9;
-//     }
-
-//     Circle.prototype.draw = function (c) {
-//         c.beginPath();
-//         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-//         c.fillStyle = `rgba(${this.color}, ${this.opacity})`;
-//         c.fill();
-//         c.closePath();
-//     }
-//     Circle.prototype.update = function (c) {
-//         this.x += this.velocity.x;
-//         this.y += this.velocity.y;
-//         this.life -= 2;
-//         this.opacity -= 0.015;
-//         this.draw(c)
-//     }
-//     var circleArray = [];
-//     function init() {
-//         for (let i = 0; i < 15; i++)
-//             circleArray.push(new Circle(mouse.x, mouse.y));
-//     }
-
+  
+//     Heart.prototype.draw = function (c) {
+//       c.globalAlpha = this.opacity;
+//       c.fillStyle = "red";
+//       c.font = "20px Arial";
+//       c.fillText("❤️", this.x, this.y);
+//       c.globalAlpha = 1;
+//     };
+  
 //     function animate() {
-//         window.requestAnimationFrame(animate);
-//         init()
-//         if (mouseClick % 2 == 0)
-//             c.clearRect(0, 0, 1519, 1790);
-//         else
-//             c.fillRect(0, 0, 1519, 1790);
-//         circleArray.forEach(function (i, index) {
-//             if (i.life <= 0)
-//                 circleArray.splice(index, 1);
-//             i.update(c);
-//         });
-//         console.log(circleArray.length);
+//       requestAnimationFrame(animate);
+//       c.clearRect(0, 0, canvas.width, canvas.height);
+  
+//       for (var i = 0; i < hearts.length; i++) {
+//         hearts[i].y -= 1;
+//         hearts[i].opacity -= 0.015;
+//         hearts[i].draw(c);
+  
+//         if (hearts[i].opacity <= 0) {
+//           hearts.splice(i, 2);
+//           i--;
+//         }
+//       }
 //     }
-
+  
 //     animate();
-
-// });
+  
+//     function createHeart(x, y) {
+//       var heart = new Heart(x, y);
+//       hearts.push(heart);
+//     }
+  
+//     var timeout;
+  
+//     document.addEventListener("mousemove", function (event) {
+//       clearTimeout(timeout);
+//       createHeart(event.clientX, event.clientY);
+  
+//       timeout = setTimeout(function () {
+//         createHeart(event.clientX, event.clientY);
+//       }, 500);
+//     });
+  
+//     document.addEventListener("mouseleave", function () {
+//       clearTimeout(timeout);
+//     });
+//   });
+document.addEventListener("DOMContentLoaded", function () {
+    var hearts = [];
+  
+    var canvas = document.createElement("canvas");
+    var c = canvas.getContext("2d");
+  
+    document.body.appendChild(canvas);
+    canvas.style.zIndex = "9999";
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.pointerEvents = "none";
+  
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  
+    function Heart(x, y) {
+      this.x = x;
+      this.y = y;
+      this.opacity = 0.8;
+    }
+  
+    Heart.prototype.draw = function (c) {
+      c.globalAlpha = this.opacity;
+      c.fillStyle = "red";
+      c.font = "20px Arial";
+      c.fillText("❤️", this.x, this.y);
+      c.globalAlpha = 1;
+    };
+  
+    function animate() {
+      requestAnimationFrame(animate);
+      c.clearRect(0, 0, canvas.width, canvas.height);
+  
+      for (var i = 0; i < hearts.length; i++) {
+        hearts[i].y -= 1;
+        hearts[i].opacity -= 0.0099999;
+        hearts[i].draw(c);
+  
+        if (hearts[i].opacity <= 0) {
+          hearts.splice(i, 1);
+          i--;
+        }
+      }
+    }
+  
+    animate();
+  
+    function createHeart(x, y) {
+      var heart = new Heart(x, y);
+      hearts.push(heart);
+    }
+  
+    function autoCreateHeart() {
+      var x = Math.random() * canvas.width;
+      var y = Math.random() * canvas.height;
+      createHeart(x, y);
+  
+      setTimeout(autoCreateHeart, 50); // Thời gian tạo trái tim tự động (ms)
+    }
+  
+    autoCreateHeart();
+  
+    var timeout;
+  
+    function handleMouseMove(event) {
+      clearTimeout(timeout);
+      createHeart(event.clientX, event.clientY);
+  
+      timeout = setTimeout(function () {
+        createHeart(event.clientX, event.clientY);
+      }, 1000);
+    }
+  
+    function handleMouseLeave() {
+      clearTimeout(timeout);
+    }
+  
+    function handleMouseStill(event) {
+        clearTimeout(timeout);
+        createHeart(event.clientX, event.clientY);
+      
+        timeout = setTimeout(function () {
+          createHeart(event.clientX, event.clientY);
+        }, 50);
+      }
+    document.addEventListener("mousemove", handleMouseMove);
+  
+    document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseover", handleMouseStill);
+  });
+  
